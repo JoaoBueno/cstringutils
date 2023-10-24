@@ -11,10 +11,10 @@ import (
 	"unsafe"
 )
 
-// copyStringToCArray copia um string Go para uma array de caracteres C
+// CopyStringToCArray copia um string Go para uma array de caracteres C
 // e em seguida copia a array para o buffer de destino.
 // Retorna o tamanho real copiado.
-func copyStringToCArray(src string, dest *C.char, maxLen int) int {
+func CopyStringToCArray(src string, dest *C.char, maxLen int) int {
 	cs := C.CString(src)
 	defer C.free(unsafe.Pointer(cs)) // Lembre-se de liberar o CString após usá-lo
 
